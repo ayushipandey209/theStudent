@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thestudent/studentdeatils.dart';
+import 'package:thestudent/Models/crud.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-     home: const studentdetails(),
+     home: const crudop(),
     );
   }
 }

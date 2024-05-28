@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_null_comparison, camel_case_types, avoid_print, prefer_const_constructors
+// ignore_for_file: unnecessary_null_comparison, camel_case_types, avoid_print, prefer_const_constructors, use_super_parameters
 
 import 'package:flutter/material.dart';
 import 'package:thestudent/Models/studentmodel.dart';
@@ -45,19 +45,29 @@ class _studentdetailsState extends State<studentdetails> {
               itemBuilder: (BuildContext context, int index) {
                 return Material(
                   elevation: 30,
-                  child: ListTile(
-                    tileColor: Colors.grey,
-                    title: Text('ID: ${data[index].id}'),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Name: ${data[index].name}'),
-                        Text('Address: ${data[index].address}'),
-                      ],
+                  child: Container(
+                    decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                    child: ListTile(
+                      
+                      title: Text('ID: ${data[index].id}'),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Name: ${data[index].name}'),
+                          Text('Address: ${data[index].address}'),
+                           
+                        ],
+                        
+                      ),
+                      
                     ),
+                    
                   ),
+                  
                 );
+          
               },
+                 
             ),
     );
   }
