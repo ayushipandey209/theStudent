@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:thestudent/Screens/addstu.dart';
+import 'package:thestudent/Screens/byid.dart';
 import 'package:thestudent/Screens/studentdeatils.dart';
 
 class crudop extends StatefulWidget {
@@ -60,6 +61,16 @@ class _crudopState extends State<crudop> {
                backgroundColor: Colors.blue,
               ),
               child: const Text('Delete'),
+            ),
+             const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const byid()));
+              },
+              style: ElevatedButton.styleFrom(
+               backgroundColor: Colors.blue,
+              ),
+              child: const Text('Retrieve by id'),
             ),
           ],
         ),
