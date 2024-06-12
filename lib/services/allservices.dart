@@ -70,6 +70,25 @@ Future<void> deleteStudentById(int id) async {
   }
 }
 
+//update by id
+Future<void> updateStudentById(int id, Map<String, dynamic> updatedStudentData) async {
+  final String apiUrl = 'http://192.168.0.247:8081/updateStudent/$id';
+  
+  final response = await http.put(
+    Uri.parse(apiUrl),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(updatedStudentData),
+  );
+  
+  if (response.statusCode == 200) {
+    print('Student with ID $id updated successfully');
+  } else {
+    throw Exception('Failed to update student');
+  }
+}
+
 
 
 

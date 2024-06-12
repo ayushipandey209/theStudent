@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:thestudent/Screens/addstu.dart';
 import 'package:thestudent/Screens/byid.dart';
 import 'package:thestudent/Screens/studentdeatils.dart';
+import 'package:thestudent/Screens/updateStudent.dart';
 
 class crudop extends StatefulWidget {
   const crudop({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _crudopState extends State<crudop> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Update functionality
+               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const updateStudent()));
               },
               style: ElevatedButton.styleFrom(
                backgroundColor: Colors.blue,
