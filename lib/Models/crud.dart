@@ -32,7 +32,7 @@ class _crudopState extends State<crudop> {
               ),
               child: const Text('Add Student'),
             ),
-            const SizedBox(height: 16), // Add some space between buttons
+            const SizedBox(height: 16), 
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const studentdetails()));
@@ -55,7 +55,7 @@ class _crudopState extends State<crudop> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Delete functionality
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const byid()));
               },
               style: ElevatedButton.styleFrom(
                backgroundColor: Colors.blue,

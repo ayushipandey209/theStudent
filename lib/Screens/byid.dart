@@ -17,7 +17,7 @@ class _byidState extends State<byid> {
    late List<Student> students=[]; 
   StudentService studentService = StudentService();
 void fetchStudentData(int id) {
-  studentService.getStudentById(id).then((result) {
+  studentService.fetchStudentById(id).then((result) {
     setState(() {
       students = [result];
     });
@@ -26,6 +26,13 @@ void fetchStudentData(int id) {
   });
 }
 
+void deletestudentById(int id) {
+  studentService.deleteStudentById(id).then((result) {
+    
+  }).catchError((error) {
+    print('Error deleting data: $error');
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +53,24 @@ void fetchStudentData(int id) {
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-  onPressed: () {
-    int id = int.tryParse(rollNoController.text) ?? 0;
-    fetchStudentData(id);
-  },
-  child: Text('Fetch'),
-),
+            Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    int id = int.tryParse(rollNoController.text) ?? 0;
+                    fetchStudentData(id);
+                  },
+                  child: Text('Fetch'),
+                ),
+                 ElevatedButton(
+                  onPressed: () {
+                   int id = int.tryParse(rollNoController.text) ?? 0;
+                    deletestudentById(id);
+                  },
+                  child: Text('Delete'),
+                ),
+              ],
+            ),
 
             SizedBox(height: 20),
             Expanded(

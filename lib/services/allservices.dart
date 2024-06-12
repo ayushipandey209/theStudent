@@ -20,7 +20,6 @@ class StudentService {
     }
   }
 
-
   Future<void> addStudent(String id, String name, String address) async {
     final url = Uri.parse('http://192.168.0.247:8081/addStudent');
 
@@ -36,7 +35,6 @@ class StudentService {
           'Content-Type': 'application/json',
         },
       );
-
       if (response.statusCode == 200) {
        print("sucesss");
       } else {
@@ -48,22 +46,27 @@ class StudentService {
       print('Error: $e');
       rethrow; // Rethrow the exception to propagate it to the caller
     }
-
-
-
-
-
   }
  
 
-Future<Student> getStudentById(int id) async {
+Future<Student> fetchStudentById(int id) async {
   final response = await http.get(Uri.parse('http://192.168.0.247:8081/getStudent/$id'));
-
+  
   if (response.statusCode == 200) {
-    Map<String, dynamic> data = json.decode(response.body);
-    return Student.fromJson(data);
+    return Student.fromJson(json.decode(response.body));
   } else {
-    throw Exception('Failed to load student');
+    throw Exception('Failed to load student data');
+  }
+}
+
+//delete id
+Future<void> deleteStudentById(int id) async {
+  final response = await http.delete(Uri.parse('http://192.168.0.247:8081/deleteStudent/$id'));
+  
+  if (response.statusCode == 200) {
+    print('Student with ID $id deleted successfully');
+  } else {
+    throw Exception('Failed to delete student');
   }
 }
 
